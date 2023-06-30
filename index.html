@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="Estilo.css">
+</head>
+<body>
+  <title>Convertir Pesos a Dólares</title>
+  <h1>Convertir Pesos a Dólares</h1>
+  <form>
+    <label for="amount">Cantidad:</label>
+    <input type="text" id="amount" name="amount" placeholder="Ingrese la cantidad" required>
+
+    <label for="currency">Moneda:</label>
+    <select id="currency" name="currency" required>
+      <option value="pesos">Pesos a Dólares</option>
+      <option value="dollars">Dólares a Pesos</option>
+    </select>
+
+    <input type="submit" value="Convertir">
+    <input type="reset" value="Limpiar">
+  </form>
+
+  <script>
+    document.querySelector('form').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      var amount = parseFloat(document.getElementById('amount').value);
+      var a = document.getElementById('currency').value;
+
+      if (a === 'pesos') {
+        var result = amount / 17; // Suponiendo que 1 Dólar equivale a 20 Pesos
+        alert(amount + ' Pesos equivale a ' + result.toFixed(2) + ' Dólares.');
+      } else if (a === 'dollars') {
+        var result = amount * 17; // Suponiendo que 1 Dólar equivale a 20 Pesos
+        alert(amount + ' Dólares equivale a ' + result.toFixed(2) + ' Pesos.');
+      }
+    });
+  </script>
+</body>
+</html>
